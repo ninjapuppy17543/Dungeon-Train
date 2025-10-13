@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dthefpmqnkqdu"]
+
+[ext_resource type="Script" uid="uid://c3gpl05d2ecl1" path="res://scenes/boss.gd" id="1_imsxe"]
+[ext_resource type="Script" uid="uid://b6djtd4q3qbcm" path="res://scenes/car_base.gd" id="1_res2x"]
+
+[node name="Car" type="Node2D"]
+script = ExtResource("1_res2x")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SP_1" type="Marker2D" parent="SpawnPoints"]
+
+[node name="SP_2" type="Marker2D" parent="SpawnPoints"]
+
+[node name="SP_3" type="Marker2D" parent="SpawnPoints"]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="ExitDoor" type="StaticBody2D" parent="Doors"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/ExitDoor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/ExitDoor"]
+
+[node name="ExitTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger"]
+
+[node name="Boss" type="Node2D" parent="."]
+script = ExtResource("1_imsxe")
+
+[node name="Health" type="Node2D" parent="Boss"]
+
+[node name="WaveTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ExitTrigger" to="." method="_on_exit_trigger_body_entered"]

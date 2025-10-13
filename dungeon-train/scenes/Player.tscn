@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsgnibw5wxllg"]
+
+[ext_resource type="Script" uid="uid://7wtupo3cxmal" path="res://scenes/player.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://dcwwdhvnmt4kx" path="res://scenes/weapon.gd" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://7od57jtq4t7m" path="res://Sprites/player.png" id="2_mdl7e"]
+[ext_resource type="Script" uid="uid://03472j3xfqbd" path="res://scenes/health.gd" id="3_mdl7e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qu4a1"]
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70d11"]
+radius = 7.0
+height = 20.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_v6fml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qu4a1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mdl7e")
+region_enabled = true
+region_rect = Rect2(18, 22, 13, 21)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_mdl7e")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_70d11")
+debug_color = Color(0.99446183, 0, 0.22902706, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("2_3li8b")

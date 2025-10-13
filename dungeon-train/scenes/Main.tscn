@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://6c6dwv0mk7oj"]
+
+[ext_resource type="Script" uid="uid://c8kgpvpei7kvk" path="res://scenes/main.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://3dx5s21bta1d" path="res://scenes/UI.gd" id="2_rvslj"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_elqb8")
+
+[node name="CarHolder" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("2_rvslj")

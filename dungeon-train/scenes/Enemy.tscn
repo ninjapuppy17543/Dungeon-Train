@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfx6yn82at64v"]
+
+[ext_resource type="Script" uid="uid://jbswdrlt2iwl" path="res://scenes/enemy.gd" id="1_55jtl"]
+[ext_resource type="Texture2D" uid="uid://cci435ncwg4s" path="res://Sprites/slime.png" id="2_ft8do"]
+[ext_resource type="Script" uid="uid://03472j3xfqbd" path="res://scenes/health.gd" id="2_mpr68"]
+[ext_resource type="Script" uid="uid://bjyjcl5o3bgjr" path="res://scenes/Hurtbox.gd" id="4_ft8do"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wwv6"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vja8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ft8do"]
+radius = 7.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_55jtl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ft8do")
+region_enabled = true
+region_rect = Rect2(40, 12, 16, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5wwv6")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_mpr68")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["enemy_hurtbox"]]
+script = ExtResource("4_ft8do")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_1vja8")
+debug_color = Color(0.99386555, 0, 0.23811516, 0.41960785)
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_ft8do")

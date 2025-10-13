@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwxjt7kauwvxj"]
+
+[ext_resource type="Script" uid="uid://dwsux0ybxx4wh" path="res://scenes/control.gd" id="1_5p55f"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5p55f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CarLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
