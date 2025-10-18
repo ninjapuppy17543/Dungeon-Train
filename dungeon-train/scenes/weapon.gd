@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var projectile_scene: PackedScene = preload("res://scenes/Projectile.tscn")
-@export var fire_rate: float = 0.12    # lower = faster auto-fire
+@export var fire_rate: float = 0.5    # lower = faster auto-fire
 @export var bullet_speed: float = 380.0
 
 var _cooldown: float = 0.0
@@ -24,12 +24,16 @@ func _process(dt: float) -> void:
 		_cooldown = fire_rate
 
 func _fire() -> void:
-	if not projectile_scene:
-		push_error("[Weapon] projectile_scene not set")
+	if projectile_scene == null:
 		return
-	var p: Node2D = projectile_scene.instantiate() as Node2D
+	var p := projectile_scene.instantiate()
 	get_tree().current_scene.add_child(p)
-	p.global_position = global_position
-	var dir: Vector2 = Vector2.RIGHT.rotated(rotation)
+
+	var dir := (get_global_mouse_position() - global_position).normalized()
+	var muzzle: float = (p.muzzle_distance if "muzzle_distance" in p else 12.0)
+	(p as Node2D).global_position = global_position + dir * muzzle
+
 	if p.has_method("launch"):
-		p.call("launch", dir, bullet_speed)
+		p.launch(dir, bullet_speed)
+	elif "vel" in p:
+		p.vel = dir * bullet_speed

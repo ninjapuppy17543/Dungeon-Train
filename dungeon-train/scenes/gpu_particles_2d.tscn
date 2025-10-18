@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cytnvdak66g6e"]
+
+[ext_resource type="Script" uid="uid://dyax65rucs0jo" path="res://scenes/HitBurst.gd" id="1_2j51h"]
+
+[sub_resource type="Curve" id="Curve_2j51h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ah5qx"]
+curve = SubResource("Curve_2j51h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ah5qx"]
+particle_flag_disable_z = true
+spread = 18.0
+initial_velocity_min = 259.8
+initial_velocity_max = 260.19998
+gravity = Vector3(0, 0, 0)
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 1.8
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ah5qx")
+
+[node name="HitBurst" type="GPUParticles2D"]
+modulate = Color(0.9843137, 0, 0, 1)
+emitting = false
+amount = 6
+lifetime = 0.09999999999999999
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ah5qx")
+script = ExtResource("1_2j51h")

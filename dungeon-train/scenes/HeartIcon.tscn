@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlj5od0eicfkj"]
+
+[ext_resource type="Script" uid="uid://b05vda44hdk5r" path="res://HeartIcon.gd" id="1_7exi5"]
+[ext_resource type="Texture2D" uid="uid://v3mhb5dtsn4k" path="res://Sprites/UI/Hearts/Full heart.png" id="2_6gs8o"]
+[ext_resource type="Texture2D" uid="uid://dbvrlfqtudyrp" path="res://Sprites/UI/Hearts/Half heart.png" id="3_w0ksg"]
+[ext_resource type="Texture2D" uid="uid://dxkdnyulwyw0t" path="res://Sprites/UI/Hearts/Empty heart.png" id="4_8rj6o"]
+
+[node name="HeartIcon" type="TextureRect"]
+custom_minimum_size = Vector2(24, 24)
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 3
+script = ExtResource("1_7exi5")
+tex_full = ExtResource("2_6gs8o")
+tex_half = ExtResource("3_w0ksg")
+tex_empty = ExtResource("4_8rj6o")

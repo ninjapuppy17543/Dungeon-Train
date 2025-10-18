@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://k2mginu4li8s"]
+
+[ext_resource type="FontFile" uid="uid://cwi7awsi8q0tu" path="res://fonts/NormalFont.ttf" id="1_0qp8c"]
+[ext_resource type="Script" uid="uid://jpc0wmuhs7og" path="res://damage_number_(label).gd" id="2_ukjlk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rv856"]
+font = ExtResource("1_0qp8c")
+
+[node name="DamageNumber (Label)" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_rv856")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ukjlk")

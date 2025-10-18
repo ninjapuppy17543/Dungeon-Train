@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://54hibekcrlex"]
+[gd_scene load_steps=5 format=3 uid="uid://54hibekcrlex"]
 
 [ext_resource type="Script" uid="uid://csj5r6o7di0e" path="res://scenes/projectile.gd" id="1_c8fcr"]
 [ext_resource type="Texture2D" uid="uid://cif3s8puhwvvv" path="res://Sprites/dust_particles_01.png" id="2_q3m7n"]
+[ext_resource type="PackedScene" uid="uid://k2mginu4li8s" path="res://scenes/Particles/damage_number_(label).tscn" id="3_6q2a6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_softn"]
 radius = 2.236068
 
 [node name="Projectile" type="Area2D"]
+collision_layer = 9
+collision_mask = 5
 script = ExtResource("1_c8fcr")
+damage_number_scene = ExtResource("3_6q2a6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_softn")

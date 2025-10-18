@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dopj1wc1oyw56"]
+
+[ext_resource type="Script" uid="uid://bk4ldohyihs5r" path="res://HeartsHUD.gd" id="1_7l66d"]
+[ext_resource type="PackedScene" uid="uid://dlj5od0eicfkj" path="res://scenes/HeartIcon.tscn" id="2_hig31"]
+
+[node name="HeartsHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_7l66d")
+heart_icon_scene = ExtResource("2_hig31")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_direction = 3
+layout_mode = 0
+offset_left = 20.0
+offset_right = 60.0
+offset_bottom = 40.0
+
+[node name="Row" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+alignment = 2
